@@ -1,72 +1,92 @@
 /*
- * [A]96
+ * [A]99
  * [TA's]
- * 1.ä¸‹æ¬¡ä½œæ¥­è«‹ä¾ç…§è¦æ±‚æ ¼å¼å°å‡º.
- * 2.ä¸¦æœªå¯¦ä½œtoString()çš„override, æ­¤éƒ¨åˆ†æ‰£2åˆ†.
- * 3.getHeight(),getWidth()æ¦‚å¿µéŒ¯èª¤, æ­¤éƒ¨åˆ†æ‰£2åˆ†.
+ * 1.¤U¦¸§@·~½Ğ¨Ì·Ó­n¨D®æ¦¡¦L¥X.
+ * 2.toString()ªºoverride·§©À¦³ÂI©_©Ç, ¦¹³¡¤À¦©1¤À.
  * */
 
-//å»ºè­°è‡ªå·±å¯«çš„é¡åˆ¥æ”¾å‰é¢.
+//«ØÄ³¦Û¤v¼gªºÃş§O©ñ«e­±.
 class Rectangle {
-	int height, width, Y, X;
+	int Y, X;
+	double height, width;
 
-	//Rectangle(){this(-1,-1,-1,-1);}//å»ºè­°åŠ ä¸Šç©ºç™½å»ºæ§‹å­è®“ä½ çš„ç¨‹å¼æ›´å¥½.
+	//Rectangle(){this(-1,-1,-1,-1);}//«ØÄ³¥[¤WªÅ¥Õ«Øºc¤lÅı§Aªºµ{¦¡§ó¦n.
 	
-	Rectangle(int x, int y, int w, int h) {
+	Rectangle(int x, int y, double w, double h) {
 		this.X = x;
 		this.Y = y;
-		
-		//ä¸‹æ–¹æ˜¯å¦å¤šé¤˜? ä½ å‚³è€Œ methodçµæŸå‚³å›ä¾†,ä¹‹ä¸­éƒ½æ²’æœ‰é€²è¡Œä»»ä½•é‹ç®—?
-		this.height = getHeight(w);
-		this.width = getWidth(h);
+		this.height = h;
+		this.width = w;
 	}
 
-	//å¯¦ä½œpublic String toString(){return ....;}
-	
-	public void work() {
-		System.out.println("java.Rectangle");
-		System.out.print("x=");
-		System.out.println(X);
-		System.out.print("y=");
-		System.out.println(Y);
-		System.out.print("width=");
-		System.out.println(width);
-		System.out.print("height=");
-		System.out.println(height);
+	public String toString() {
+
+		System.out.print("java.Rectangle");
+		System.out.print("{x=");
+		System.out.print(X);
+		System.out.print(",y=");
+		System.out.print(Y);
+		System.out.print(",width=");
+		System.out.print(getWidth());
+		System.out.print(",height=");
+		System.out.print(getHeight());
+		System.out.println("}");
 		System.out.print("Area=");
-		System.out.println(width * height);
+		System.out.println(getWidth() * getHeight());
 		System.out.print("Perimeter=");
-		System.out.println((width + height) * 2);
-	}
-
-	//ä¿®æ”¹æˆ(getHeight()ç›¸åŒæ„æ€.)
-	/*
-	 * public int getWidth(){
-		return this.width;
-	}
-	*/
+		System.out.println((getWidth() + getHeight()) * 2);
+		
+		//¨ä¹ê³omethodÀ³¸Ó­n§â¤W¤è¦r¦ê¦ê±µ°_¨Ó¦^¶Ç¦A¦L¥X
+		//´£¨Ñµ¹§A¤@­Ó¤èªk¼g¦b¤U¤è.
 	
-	public int getWidth(int w) {
-		return w;
+		/*
+		 * 	StringBuffer sb=new StringBuffer();
+			sb.append("java.Rectangle");
+			sb.append("{x=");
+			sb.append(X);
+			sb.append(",y=");
+			sb.append(Y);
+			sb.append(",width=");
+			sb.append(getWidth());
+			sb.append(",height=");
+			sb.append(getHeight());
+			sb.append("}");
+			sb.append("Area=");
+			sb.append(getWidth() * getHeight());
+			sb.append("Perimeter=");
+			sb.append((getWidth() + getHeight()) * 2);
+			
+			//important!
+			return sb.toString();
+		 * */
+		
+		
+		
+		return null;
 	}
 
-	public int getHeight(int h) {
-		return h;
+	//³omethod¦³ÂIÂû¦Ø, ¦ó¤£´Nª½±µ¦L¤F©O?
+	public void end() {
+		System.out.print("End of Output!");
 	}
+
+	public double getWidth() {
+		return width;
+	}
+
+	public double getHeight() {
+		return height;
+	}
+
 }
 
 public class rentengletester {
 
 	public static void main(String[] args) {
-		Rectangle R1 = new Rectangle(4, 3, 2, 1);
-		
-		//toStringæœƒå›å‚³ä¸€å­—ä¸², è€Œé€™å­—ä¸²å»å“ªäº†?
+		Rectangle R1 = new Rectangle(15, 25, 18, 57);
 		R1.toString();
-		
-		R1.work();
-		Rectangle R2 = new Rectangle(5, 4, 3, 2);
+		Rectangle R2 = new Rectangle(0, 12, 60, 47);
 		R2.toString();
-		R2.work();
+		R1.end();
 	}
 }
-
