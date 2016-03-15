@@ -2,12 +2,14 @@ public class rentengletester {
 
 	
 	public static void main(String[] args) {
-		Rectangle R1 = new Rectangle(4,3,2,1);
+		Rectangle R1 = new Rectangle(15,25,18,57);
 		R1.toString();
-		R1.work();
-		Rectangle R2 = new Rectangle(5,4,3,2);
+
+		Rectangle R2 = new Rectangle(0,12,60,47);
 		R2.toString();
-		R2.work();
+		
+		R1.end();
+
 	}
 	
 
@@ -16,42 +18,51 @@ public class rentengletester {
 
 class Rectangle
 	{
-		int height, width, Y, X;
-
-		Rectangle(int x, int y,int w,int h)
+		int  Y, X;
+        double height, width;
+		
+		Rectangle(int x, int y,double w,double h)
 		{
 			this.X = x;
 			this.Y = y;
-			this.height = getHeight(w);
-			this.width = getWidth(h);
+			this.height = h;
+			this.width = w;
+			
 		}
       
 		
-		public   void work()
+		public   String  toString()
 		{
-			System.out.println("java.Rectangle");
-	        System.out.print("x=");
-			System.out.println(X);
-			System.out.print("y=");
-			System.out.println(Y);
-			System.out.print("width=");
-			System.out.println(width);
-			System.out.print("height=");
-			System.out.println(height);
+			
+			System.out.print("java.Rectangle");
+	        System.out.print("{x=");
+			System.out.print(X);
+			System.out.print(",y=");
+			System.out.print(Y);
+			System.out.print(",width=");
+			System.out.print(getWidth());
+			System.out.print(",height=");
+			System.out.print(getHeight());
+			System.out.println("}");
 			System.out.print("Area=");
-			System.out.println(width*height);
+			System.out.println(getWidth()*getHeight());
 			System.out.print("Perimeter=");
-			System.out.println((width+height)*2);
+			System.out.println((getWidth()+getHeight())*2);
+			return null;
 		}
-		
-		public int getWidth(int w)
+		public void end()
 		{
-			return w;
+			System.out.print("End of Output!");
 		}
-		public int  getHeight(int h)
+		public double getWidth()
 		{
-			return h;
+			return width;
 		}
+		public double  getHeight()
+		{
+			return height;
+		}
+
 	}
 	
 
